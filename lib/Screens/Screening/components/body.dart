@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
 
-import 'package:ifightcovid19/Screens/Login/components/background.dart';
-import 'package:ifightcovid19/Screens/Screening/screening_screen.dart';
-import 'package:ifightcovid19/Screens/Signup/signup_screen.dart';
-import 'package:ifightcovid19/components/already_have_an_account_acheck.dart';
+// import 'package:ifightcovid19/Screens/Login/components/background.dart';
+// import 'package:ifightcovid19/Screens/Screening/screening_screen.dart';
+// import 'package:ifightcovid19/Screens/Signup/signup_screen.dart';
+// import 'package:ifightcovid19/components/already_have_an_account_acheck.dart';
 
-import 'package:ifightcovid19/components/rounded_input_field.dart';
-import 'package:ifightcovid19/components/rounded_password_field.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:ifightcovid19/components/already_have_an_account_acheck.dart';
+// import 'package:ifightcovid19/components/rounded_input_field.dart';
+// import 'package:ifightcovid19/components/rounded_password_field.dart';
+// import 'package:flutter_svg/svg.dart';
+// import 'package:ifightcovid19/components/already_have_an_account_acheck.dart';
 
 import 'package:ifightcovid19/Screens/Screening2/screening2_screen.dart';
 import 'package:ifightcovid19/components/rounded_button.dart';
@@ -60,7 +60,7 @@ with TickerProviderStateMixin {
       home: new Scaffold(
       backgroundColor: Colors.lightBlue[100],
       appBar: AppBar(
-        title: Text("ฟอร์ม"),
+        title: Text(""),
          actions: [
         // action button
         IconButton(
@@ -207,35 +207,7 @@ with TickerProviderStateMixin {
                 );
               },
             ),
-            // AlreadyHaveAnAccountCheck(
-            //   press: () {
-            //     Navigator.push(
-            //       context,
-            //       MaterialPageRoute(
-            //         builder: (context) {
-            //           return ScreeningScreen();
-            //         },
-            //       ),
-            //     );
-            //   },
-            // ),    
-//             new AnimatedBuilder(
-//             child: const Text('ถัดไป'),
-//              animation: _controller,
-//              builder: (BuildContext context, Widget child) {
-//              return new RaisedButton(
-//              color: new ColorTween(
-//               begin: theme.primaryColor,
-//               end: theme.disabledColor,
-//              ).animate(_controller).value,
-//              colorBrightness: Brightness.dark,
-//              child: child,
-//              onPressed: _radioValue == null ?
-//               null :
-//         () => print('submit')
-//  );
-//         }
-//              )
+
            ],
          ),
        ),

@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:ifightcovid19/Pages/assessmentresults.dart';
 import 'package:ifightcovid19/Pages/chatbot.dart';
 import 'package:ifightcovid19/Pages/form14day.dart';
-import 'package:ifightcovid19/components/rounded_button.dart';
-import 'package:ifightcovid19/Screens/Screening/components/background.dart';
-import 'package:ifightcovid19/Screens/Screeningresults/screeningresults_screen.dart'; //ต้องอิมพอร์มมาหน้าตัวเอง
-import 'package:ifightcovid19/components/already_have_an_account_acheck.dart';
-import 'package:ifightcovid19/components/rounded_button.dart';
-import 'package:ifightcovid19/components/rounded_input_field.dart';
-import 'package:flutter_svg/svg.dart';
+// import 'package:ifightcovid19/components/rounded_button.dart';
+// import 'package:ifightcovid19/Screens/Screening/components/background.dart';
+// import 'package:ifightcovid19/Screens/Screeningresults/screeningresults_screen.dart'; //ต้องอิมพอร์มมาหน้าตัวเอง
+// import 'package:ifightcovid19/components/already_have_an_account_acheck.dart';
+// import 'package:ifightcovid19/components/rounded_button.dart';
+// import 'package:ifightcovid19/components/rounded_input_field.dart';
+// import 'package:flutter_svg/svg.dart';
 
 
 class BodyPage extends StatefulWidget {

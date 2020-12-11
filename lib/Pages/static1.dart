@@ -150,7 +150,7 @@ class _PatientgraphPageState extends State<PatientgraphPage> {
         length: 3,
         
         child: Scaffold(
-          backgroundColor: Color(0xFFFFFFFF),
+          backgroundColor: Color(0xFFB3E5FC),
           appBar: AppBar(
             backgroundColor: Colors.indigo,
       
@@ -261,7 +261,7 @@ class _PatientgraphPageState extends State<PatientgraphPage> {
                     child: Column(
                       children: <Widget>[
                           Text(
-                            'รายงานภาพรวมข้อมูลของผู้ป่วยในประเทศ',style: TextStyle(fontSize: 17.0,fontWeight: FontWeight.bold),),
+                            'รายงานภาพรวมข้อมูลของผู้ป่วยในประเทศ',style: TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold),),
                             SizedBox(height: 10.0,),
           new Card(
           color: Colors.pink,

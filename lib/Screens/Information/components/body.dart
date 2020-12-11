@@ -4,17 +4,17 @@ import 'package:ifightcovid19/Pages/addform.dart';
 import 'package:ifightcovid19/Pages/patientgraph.dart';
 import 'package:ifightcovid19/Pages/patientinformation.dart';
 import 'package:ifightcovid19/Pages/patientmap.dart';
-import 'package:ifightcovid19/components/rounded_button.dart';
+// import 'package:ifightcovid19/components/rounded_button.dart';
 
-import 'package:ifightcovid19/Screens/Screening/components/background.dart';
-import 'package:ifightcovid19/Screens/Information/information_screen.dart';
-import 'package:ifightcovid19/Screens/Signup/signup_screen.dart';
-import 'package:ifightcovid19/components/already_have_an_account_acheck.dart';
-import 'package:ifightcovid19/components/rounded_button.dart';
-import 'package:ifightcovid19/components/rounded_input_field.dart';
-import 'package:ifightcovid19/components/rounded_password_field.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:ifightcovid19/components/already_have_an_account_acheck.dart';
+// import 'package:ifightcovid19/Screens/Screening/components/background.dart';
+// import 'package:ifightcovid19/Screens/Information/information_screen.dart';
+// import 'package:ifightcovid19/Screens/Signup/signup_screen.dart';
+// import 'package:ifightcovid19/components/already_have_an_account_acheck.dart';
+// import 'package:ifightcovid19/components/rounded_button.dart';
+// import 'package:ifightcovid19/components/rounded_input_field.dart';
+// import 'package:ifightcovid19/components/rounded_password_field.dart';
+// import 'package:flutter_svg/svg.dart';
+// import 'package:ifightcovid19/components/already_have_an_account_acheck.dart';
 // import 'package:flutter_auth/Screens/Screeningresults/screeningresults_screen.dart';//import หน้าที่จะไป
 
 class BodyPage extends StatefulWidget {

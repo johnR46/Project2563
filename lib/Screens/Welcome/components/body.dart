@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ifightcovid19/constants.dart';
+// import 'package:ifightcovid19/constants.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:ifightcovid19/Screens/Login/login_screen.dart';
 import 'package:ifightcovid19/Screens/Signup/signup_screen.dart';

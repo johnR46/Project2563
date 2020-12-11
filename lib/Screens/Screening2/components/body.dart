@@ -1,16 +1,16 @@
 
 import 'package:flutter/material.dart';
-import 'package:ifightcovid19/Pages/assessmentresults.dart';
+// import 'package:ifightcovid19/Pages/assessmentresults.dart';
 
 
-import 'package:ifightcovid19/Screens/Screening/components/background.dart';
-import 'package:ifightcovid19/Screens/Screening2/screening2_screen.dart';
-import 'package:ifightcovid19/Screens/Signup/signup_screen.dart';
-import 'package:ifightcovid19/components/already_have_an_account_acheck.dart';
-import 'package:ifightcovid19/components/rounded_input_field.dart';
-import 'package:ifightcovid19/components/rounded_password_field.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:ifightcovid19/components/already_have_an_account_acheck.dart';
+// import 'package:ifightcovid19/Screens/Screening/components/background.dart';
+// import 'package:ifightcovid19/Screens/Screening2/screening2_screen.dart';
+// import 'package:ifightcovid19/Screens/Signup/signup_screen.dart';
+// import 'package:ifightcovid19/components/already_have_an_account_acheck.dart';
+// import 'package:ifightcovid19/components/rounded_input_field.dart';
+// import 'package:ifightcovid19/components/rounded_password_field.dart';
+// import 'package:flutter_svg/svg.dart';
+// import 'package:ifightcovid19/components/already_have_an_account_acheck.dart';
 
 import 'package:ifightcovid19/Screens/Screeningresults/screeningresults_screen.dart';
 import 'package:ifightcovid19/components/rounded_button.dart';//import หน้าที่จะไป
@@ -61,7 +61,7 @@ with TickerProviderStateMixin {
     return new Scaffold(
       backgroundColor: Colors.lightBlue[100],
       appBar: AppBar(
-        title: Text("ฟอร์ม"),
+        title: Text(""),
          actions: [
         // action button
         IconButton(
@@ -84,7 +84,7 @@ with TickerProviderStateMixin {
          children: [
            
            new Padding(padding: new EdgeInsets.all(4.0),),  
-           new Text( 'ข้อที่ 5 : ผู้ป่วยมีอุณหภูมิกายตั้งแต่ 37.5 องศาขึ้นไป หรือ ให้ประวัติว่ามีไข้ใน', style: new TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0,
+           new Text( 'ข้อที่ 5 : มีประวัติไปสถานที่ชุมนุมชน หรือสถานที่ที่มีการรวมกลุ่มคน เช่น ตลาดนัด ห้างสรรพสินค้า สถานพยาบาลหรือขนส่งสาธารณะ', style: new TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0,
             ),),
            new Row( mainAxisAlignment: MainAxisAlignment.start,
                                children: <Widget>[
@@ -94,7 +94,7 @@ with TickerProviderStateMixin {
                                    onChanged: _handleRadioValue,
                                  ),
                                  new Text(
-                                   'ต่ำกว่า 37.5',
+                                   'มี',
                                    style: new TextStyle(fontSize: 16.0),
                                  ),
                                  new Radio<int>(
@@ -103,7 +103,7 @@ with TickerProviderStateMixin {
                                    onChanged: _handleRadioValue,
                                  ),
                                  new Text(
-                                   'มากกว่า 37.7',
+                                   'ไม่มี',
                                    style: new TextStyle(fontSize: 16.0),
                                  ),
                                   
@@ -112,7 +112,7 @@ with TickerProviderStateMixin {
             
            new Divider(height: 5.0, color: Colors.black,),
            new Padding(padding: new EdgeInsets.all(4.0),),
-           new Text( ' ข้อที่ 6 : ผู้ป่วยประกอบอาชีพที่สัมผัสใกล้ชิดกับนักท่องเที่ยวต่างชาติ สถานที่แออัด หรือติดต่อคนจำนวนมาก " ', style: new TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0,
+           new Text( ' ข้อที่ 6 : ผู้ป่วยประกอบอาชีพที่สัมผัสใกล้ชิดกับนักท่องเที่ยวต่างชาติ สถานที่แออัด หรือติดต่อคนจำนวนมาก ', style: new TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0,
             ),),
            new Row( mainAxisAlignment: MainAxisAlignment.start,
                                children: <Widget>[
@@ -139,7 +139,7 @@ with TickerProviderStateMixin {
                              ),
            new Divider(height: 5.0, color: Colors.black,),
            new Padding(padding: new EdgeInsets.all(4.0),),
-           new Text( 'ข้อที่ 7 : เป็นบุคลากรทางการแพทย์ เป็นบุคลากรทางการแพทย์เป็นบุคลากรทางการแพทย์', style: new TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0,
+           new Text( 'ข้อที่ 7 : เป็นบุคลากรทางการแพทย์หรือสาธารณสุข ที่สัมผัสกับผู้ป่วยเข้าเกณฑ์สอบสวนติดเชื้อโควิด-19', style: new TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0,
             ),),
            new Row( mainAxisAlignment: MainAxisAlignment.start,
                                children: <Widget>[

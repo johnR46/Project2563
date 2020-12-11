@@ -20,7 +20,21 @@ Completer<GoogleMapController> _controller = Completer();
   @override
    @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+     return new MaterialApp(
+       debugShowCheckedModeBanner: false,
+    home: new Scaffold(
+           backgroundColor: Color(0xFFB3E5FC),
+       appBar: AppBar(
+         title: Text("Google Map"),
+           actions: [
+      //action button
+       IconButton(
+         icon: Image.asset('assets/icons/heart.png'),
+         onPressed: () { },
+       ),
+     ],
+         backgroundColor: Colors.indigo,
+       ),
       body: GoogleMap(
         mapType: MapType.normal,
         initialCameraPosition: CameraPosition(
@@ -31,28 +45,8 @@ Completer<GoogleMapController> _controller = Completer();
           _controller.complete(controller);
         },
       )
-    );
+    ),
+     );
   }
 }
-  // Widget build(BuildContext context) {
-  //   return new MaterialApp(
-  //     debugShowCheckedModeBanner: false,
-  //     home: new Scaffold(
-  //       backgroundColor: Color(0xFFB3E5FC),
-  //       appBar: AppBar(
-  //         title: Text("Google Map"),
-  //           actions: [
-  //       // action button
-  //       IconButton(
-  //         icon: Image.asset('assets/icons/heart.png'),
-  //         onPressed: () { },
-  //       ),
-  //     ],
-  //         backgroundColor: Colors.indigo,
-  //       ),
-  //       body: new Center(
-  //       ),
-  //     ),
-  //   );
-//   }
-// }
+ 

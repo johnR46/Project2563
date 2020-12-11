@@ -16,7 +16,7 @@ class PatientinformationPageState extends State<PatientinformationPage> with Tic
     return new MaterialApp(
       debugShowCheckedModeBanner: false,
       home: new Scaffold(
-        backgroundColor: Color(0xFFB3E5FC),
+        backgroundColor: Color(0xFFFFFFFF),
         appBar: AppBar(
           title: Text("ข้อมูลผู้ป่วย"),
             actions: [
@@ -28,8 +28,13 @@ class PatientinformationPageState extends State<PatientinformationPage> with Tic
       ],
           backgroundColor: Colors.indigo,
         ),
-        body: new Center(),
+        body: new Center(
+          child: Container(
+          padding: EdgeInsets.all(10.0),
+          child: Column(children: [
+            Text('รายชื่อประวัติข้อมูลผู้ป่วยที่มารับการตรวจคัดกรองโรค',style: TextStyle(fontSize: 14.0,fontWeight: FontWeight.bold),),
+                  ]),
       ),
-    );
+    )));
   }
 }

@@ -4,9 +4,9 @@ import 'package:flutter_dialogflow/dialogflow_v2.dart';
 import 'package:intl/intl.dart';
 
 
-
 class ChatbotPage extends StatefulWidget {
 ChatbotPage({Key key, this.title}) : super(key: key);
+
 
 
 final String title;
@@ -21,7 +21,7 @@ class _ChatbotPageState extends State<ChatbotPage> {
         fileJson: "assets/ifightcivid19-nlia-d38b4d515079.json") //file ของเรา .json
         .build();
     Dialogflow dialogflow =
-    Dialogflow(authGoogle: authGoogle, language: Language.english);
+    Dialogflow(authGoogle: authGoogle, language: Language.thai);//language: Language.thai);
     AIResponse aiResponse = await dialogflow.detectIntent(query);
     setState(() {
       messsages.insert(0, {
@@ -44,7 +44,8 @@ class _ChatbotPageState extends State<ChatbotPage> {
     return  Scaffold(
       appBar: AppBar(
         leading: Image.asset('assets/icons/doctor1.png'),
-        title: Text(
+        centerTitle: true,
+        title: new Text(
           "ไอรู้สู้โควิด19ถาม-ตอบ",
         ),
         actions: [
@@ -84,11 +85,6 @@ class _ChatbotPageState extends State<ChatbotPage> {
 
 
               child: ListTile(
-
-                  // leading: IconButton(
-                  //   icon: Icon(Icons.camera_alt, color: Colors.greenAccent, size: 35,), onPressed: () {  },
-                  // ),
-
                   title: Container(
                     height: 35,
                     decoration: BoxDecoration(
@@ -100,7 +96,7 @@ class _ChatbotPageState extends State<ChatbotPage> {
                     child: TextFormField(
                       controller: messageInsert,
                       decoration: InputDecoration(
-                        hintText: "Enter a Message...",
+                        // hintText: "Enter a Message...",
                         hintStyle: TextStyle(
                             color: Colors.black26
                         ),
