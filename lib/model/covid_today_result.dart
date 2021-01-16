@@ -1,7 +1,4 @@
-// To parse this JSON data, do
-//
-//     final covidTodayResult = covidTodayResultFromJson(jsonString);
-
+// To parse this JSON data, 
 import 'dart:convert';
 
 CovidTodayResult covidTodayResultFromJson(String str) => CovidTodayResult.fromJson(json.decode(str));

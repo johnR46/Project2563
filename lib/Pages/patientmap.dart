@@ -13,8 +13,6 @@ class PatientmapPage extends StatefulWidget {
 }
 
 class PatientmapPageState extends State<PatientmapPage>  {
-  // double currentOpacity = 0;
-  // Animation<double> starAnimation;
 Completer<GoogleMapController> _controller = Completer();
   // @override
   @override

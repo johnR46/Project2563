@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:ifightcovid19/Screens/Welcome/welcome_screen.dart';
 
 import 'package:ifightcovid19/constants.dart';
-
+import 'package:ifightcovid19/splash_page.dart';
+// import 'WelcomeScreens';
 // import 'package:mongo_dart/mongo_dart.dart';
 // import 'dart:io' show Platform;
 
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         primaryColor: kPrimaryColor,
         scaffoldBackgroundColor: Colors.white,
       ),
-      home: WelcomeScreen(),
+      home: SplashPage(),
     );
   }
 }

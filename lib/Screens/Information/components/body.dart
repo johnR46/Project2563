@@ -58,7 +58,7 @@ class _BodyPageState extends State<BodyPage> {
             title: Text('กราฟ'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle),
+            icon: Icon(Icons.map),
             title: Text('สถานะผู้ป่วย'),
           ),
           BottomNavigationBarItem(

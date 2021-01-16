@@ -19,35 +19,11 @@ class PatientgraphPage extends StatefulWidget {
 }
 
 class _PatientgraphPageState extends State<PatientgraphPage> {
-   List<charts.Series<Pollution, String>> _seriesData;
+  //  List<charts.Series<Pollution, String>> _seriesData;
    List<charts.Series<Task, String>> _seriesPieData;
   // List<charts.Series<Sales, int>> _seriesLineData;
 
   _generateData() {
-    var data1 = [
-      new Pollution(1980, 'จันทร์', 30),
-      new Pollution(1980, 'อังคาร', 40),
-      new Pollution(1980, 'พุธ', 10),
-      new Pollution(1985, 'พุธ', 80),
-    ];
-    var data2 = [
-      new Pollution(1985, 'จันทร์', 100),
-      new Pollution(1980, 'อังคาร', 150),
-      new Pollution(1985, 'พุธ', 80),
-      new Pollution(1985, 'พุธ', 80),
-    ];
-    var data3 = [
-      new Pollution(1985, 'จันทร์', 200),
-      new Pollution(1980, 'อังคาร', 300),
-      new Pollution(1985, 'พุธ', 180),
-      new Pollution(1985, 'พุธ', 80),
-    ];
-     var data4 = [
-      new Pollution(1985, 'จันทร์', 200),
-      new Pollution(1980, 'อังคาร', 300),
-      new Pollution(1985, 'พุธ', 180),
-      new Pollution(1985, 'พุธ', 80),
-    ];
 
       var piedata = [
       new Task('เสี่ยงมาก', 35.8, Color(0xfff44336)),
@@ -55,54 +31,6 @@ class _PatientgraphPageState extends State<PatientgraphPage> {
       new Task('ปานกลาง', 19.2, Color(0xffff9900)),
       new Task('เสี่ยงน้อย', 10.3, Color(0xffdc3912)),
     ];
-
-    _seriesData.add(
-      charts.Series(
-        domainFn: (Pollution pollution, _) => pollution.place,
-        measureFn: (Pollution pollution, _) => pollution.quantity,
-        id: '2017',
-        data: data1,
-        fillPatternFn: (_, __) => charts.FillPatternType.solid,
-        fillColorFn: (Pollution pollution, _) =>
-            charts.ColorUtil.fromDartColor(Color(0xff109618)),
-      ), 
-    );
-
-    _seriesData.add(
-      charts.Series(
-        domainFn: (Pollution pollution, _) => pollution.place,
-        measureFn: (Pollution pollution, _) => pollution.quantity,
-        id: '2018',
-        data: data2,
-        fillPatternFn: (_,__) => charts.FillPatternType.solid,
-        fillColorFn: (Pollution pollution, _) =>
-           charts.ColorUtil.fromDartColor(Color(0xfff44336)),
-      ),
-    );
-
-    _seriesData.add(
-      charts.Series(
-        domainFn: (Pollution pollution, _) => pollution.place,
-        measureFn: (Pollution pollution, _) => pollution.quantity,
-        id: '2019',
-        data: data3,
-        fillPatternFn: (_,__) => charts.FillPatternType.solid,
-       fillColorFn: (Pollution pollution, _) =>
-          charts.ColorUtil.fromDartColor(Color(0xffff9900)),
-      ),
-    );
-    _seriesData.add(
-      charts.Series(
-        domainFn: (Pollution pollution, _) => pollution.place,
-        measureFn: (Pollution pollution, _) => pollution.quantity,
-        id: '2020',
-        data: data4,
-        fillPatternFn: (_, __) => charts.FillPatternType.solid,
-       fillColorFn: (Pollution pollution, _) =>
-          charts.ColorUtil.fromDartColor(Color(0xffdc3912)),
-      ),
-    );
-
      _seriesPieData.add(
       charts.Series(
         domainFn: (Task task, _) => task.task,
@@ -121,7 +49,7 @@ class _PatientgraphPageState extends State<PatientgraphPage> {
   @override
   void initState(){
     super.initState();
-    _seriesData = List<charts.Series<Pollution, String>>();
+    // _seriesData = List<charts.Series<Pollution, String>>();
     _seriesPieData = List<charts.Series<Task, String>>();
     print('init state');
     getData();
@@ -147,7 +75,7 @@ class _PatientgraphPageState extends State<PatientgraphPage> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: DefaultTabController(
-        length: 3,
+        length: 2,
         
         child: Scaffold(
           backgroundColor: Color(0xFFFFFFFF),
@@ -157,10 +85,8 @@ class _PatientgraphPageState extends State<PatientgraphPage> {
             bottom: TabBar(
               indicatorColor: Color(0xff9962D0),
               tabs: [
-                Tab(
-                  icon: Icon(FontAwesomeIcons.solidChartBar),
-                ),
-                Tab(icon: Icon(FontAwesomeIcons.chartPie)),
+                Tab(icon: Icon(FontAwesomeIcons.chartPie)
+                ,),
                 Tab(icon: Icon(FontAwesomeIcons.chartLine)),
               ],
             ),
@@ -177,44 +103,7 @@ class _PatientgraphPageState extends State<PatientgraphPage> {
           
           body: TabBarView(
             children: [
-              Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Container(
-                  child: Center(
-                    child: Column(
-                      children: <Widget>[
-                        Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextField(
-                onChanged: (value) {
-                  
-                },
-                controller: editingController,
-                decoration: InputDecoration(
-                    labelText: "Search",
-                    hintText: "Search",
-                    prefixIcon: Icon(Icons.search),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(25.0)))),
-              ),
-            ),
-            
-                        Text(
-                            'รายงานภาพรวมข้อมูลของผู้ป่วย',style: TextStyle(fontSize: 17.0,fontWeight: FontWeight.bold),),
-                            Expanded(
-                          child: charts.BarChart(
-                            _seriesData,
-                            animate: true,
-                            barGroupingType: charts.BarGroupingType.grouped,
-                            //behaviors: [new charts.SeriesLegend()],
-                            animationDuration: Duration(seconds: 5),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
+          
               
               Padding(
                 padding: EdgeInsets.all(8.0),
@@ -310,15 +199,6 @@ class _PatientgraphPageState extends State<PatientgraphPage> {
   }
 }
 
-
-
-class Pollution {
-  String place;
-  int year;
-  int quantity;
-
-  Pollution(this.year, this.place, this.quantity);
-}
 class Task {
   String task;
   double taskvalue;

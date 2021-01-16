@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:ifightcovid19/Screens/Screening_1/screening_screen.dart';
 
 import 'package:ifightcovid19/components/rounded_button.dart';
+
+import '../../Screeningresults/screeningresults_screen.dart';
 
 class BodyPage extends StatefulWidget {
   BodyPage({Key key}) : super(key: key);
@@ -27,16 +28,16 @@ class BodyPageState extends State<BodyPage> with TickerProviderStateMixin {
     super.initState();
   }
 
-   void _handleRadioValue(int value) {
-      //Don't animate the first time that the radio value is set
-     if (_radioValue != null) _controller.forward();
-     setState(() {
-       _radioValue = value;
-     });
-   }
+  void _handleRadioValue(int value) {
+    // Don't animate the first time that the radio value is set
+    if (_radioValue != null) _controller.forward();
+    setState(() {
+      _radioValue = value;
+    });
+  }
 
   void _handleRadioValue2(int value) {
-     //Don't animate the first time that the radio value is set
+    // Don't animate the first time that the radio value is set
     if (_radioValue2 != null) _controller.forward();
     setState(() {
       _radioValue2 = value;
@@ -61,32 +62,32 @@ class BodyPageState extends State<BodyPage> with TickerProviderStateMixin {
             backgroundColor: Colors.indigo,
           ),
           body: new Container(
+              //อยากขยับไปฝั่งซ้ายจัง ค่อยคิด
               padding: EdgeInsets.only(bottom: 20.0),
+             
               child: new Card(
-                // color: Colors.green[200],
-                color: Colors.green[200],
-                    // margin: new EdgeInsets.only(
-                    //     left: 20.0, right: 20.0, top: 8.0, bottom: 5.0),
-                    // shape: RoundedRectangleBorder(
-                    //     borderRadius: BorderRadius.circular(10.0)),
-                    // elevation: 4.0,
+                     color: Colors.green[200],
                   child: Padding(
                 padding: EdgeInsets.symmetric(vertical: 2.0),
                 child: SafeArea(
                   child: new Column(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      // -------------------------------------------------------------------------------------------------------------------------------------------------
+                      new Divider(
+                        height: 5.0,
+                        color: Colors.black,
+                      ),
                       new Padding(
                         padding: new EdgeInsets.all(4.0),
                       ),
                       new Text(
-                        ' ข้อที่ 1 : ผู้ป่วยมีอุณหภูมิกายตั้งแต่ 37.5 องศาขึ้นไป หรือ ให้ประวัติว่ามีไข้ใน ',
+                        ' ข้อที่ 7 : เป็นบุคลากรทางการแพทย์หรือสาธารณสุข ที่สัมผัสกับผู้ป่วยเข้าเกณฑ์สอบสวนติดเชื้อโควิด-19',
                         style: new TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 18.0,
                         ),
                       ),
-
                       new Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
@@ -98,14 +99,13 @@ class BodyPageState extends State<BodyPage> with TickerProviderStateMixin {
                                 onChanged: _handleRadioValue,
                               ),
                               new Text(
-                                'ต่ำกว่า 37.5',
+                                'มี',
                                 style: new TextStyle(fontSize: 16.0),
                               )
                             ],
                           ),
                         ],
                       ),
-
                       new Row(
                         children: [
                           new Radio<int>(
@@ -114,55 +114,11 @@ class BodyPageState extends State<BodyPage> with TickerProviderStateMixin {
                             onChanged: _handleRadioValue,
                           ),
                           new Text(
-                            'มากกว่า 37.7',
+                            'ไม่มี',
                             style: new TextStyle(fontSize: 16.0),
                           ),
                         ],
                       ),
-
-                      // new Row(children: [
-                      //   new Text(
-                      //     'ข้อที่ 1 : ผู้ป่วยมีอุณหภูมิกายตั้งแต่ 37.5 องศาขึ้นไป หรือ ให้ประวัติว่ามีไข้ใน',
-                      //     style: new TextStyle(
-                      //       fontWeight: FontWeight.bold,
-                      //       fontSize: 18.0,
-                      //     ),
-                      //   ),
-                      // ]),
-
-                      // new Row(
-                      //   mainAxisAlignment: MainAxisAlignment.start,
-                      //   children: <Widget>[
-                      //     new Row(
-                      //       children: [
-                      //         new Radio<int>(
-                      //           value: 1,
-                      //           groupValue: _radioValue,
-                      //           onChanged: _handleRadioValue,
-                      //         ),
-                      //         new Text(
-                      //           'ต่ำกว่า 37.5',
-                      //           style: new TextStyle(fontSize: 16.0),
-                      //         )
-                      //       ],
-                      //     ),
-                      //   ],
-                      // ),
-
-                      // new Row(
-                      //   children: [
-                      //     new Radio<int>(
-                      //       value: 0,
-                      //       groupValue: _radioValue,
-                      //       onChanged: _handleRadioValue,
-                      //     ),
-                      //     new Text(
-                      //       'ไม่มี',
-                      //       style: new TextStyle(fontSize: 16.0),
-                      //     ),
-                      //   ],
-                      // ),
-
                       // new Divider(
                       //   height: 5.0,
                       //   color: Colors.black,
@@ -170,62 +126,58 @@ class BodyPageState extends State<BodyPage> with TickerProviderStateMixin {
                       new Padding(
                         padding: new EdgeInsets.all(4.0),
                       ),
-
-                      // -------------------------------------------------------------------------------------------------------------------------------------------------
-
-                      new Padding(
-                        padding: new EdgeInsets.all(4.0),
-                      ),
                       new Text(
-                        'ข้อที่ 2 : ผู้ป่วยมีอาการระบบทางเดินหายใจ อย่างใดอย่างหนึ่งดังต่อไปนี้ "ไอ น้ำมูก เจ็บคอ หายใจเหนื่อย หรือหายใจลำบาก"',
+                        'ข้อที่ 8 : มีผู้ใกล้ชิดป่วยเป็นไข้หวัดพร้อมกัน มากกว่า 5 คน ในช่วงสัปดาห์ที่ป่วย',
                         style: new TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 18.0,
                         ),
                       ),
                       new Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
+                          new Row(
+                            children: [
+                              new Radio<int>(
+                                value: 1,
+                                groupValue: _radioValue2,
+                                onChanged: _handleRadioValue2,
+                              ),
+                              new Text(
+                                'มี',
+                                style: new TextStyle(fontSize: 16.0),
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
+                      new Row(
+                        children: [
                           new Radio<int>(
                             value: 0,
                             groupValue: _radioValue2,
                             onChanged: _handleRadioValue2,
                           ),
                           new Text(
-                            'มี',
+                            'ไม่มี',
                             style: new TextStyle(fontSize: 16.0),
                           ),
                         ],
                       ),
-
-                      new Row(children: [
-                        new Radio<int>(
-                          value: 1,
-                          groupValue: _radioValue2,
-                          onChanged: _handleRadioValue2,
-                        ),
-                        new Text(
-                          'ไม่มี',
-                          style: new TextStyle(fontSize: 16.0),
-                        ),
-                      ]),
-
-                      // new Divider(
-                      //   height: 5.0,
-                      //   color: Colors.black,
-                      // ),
-                      new Padding(
-                        padding: new EdgeInsets.all(4.0),
-                      ),
-                      Spacer(),
-                      SizedBox(height: 40),
+                      new Column(),
+                      new Column(),
+                      new Column(),
+                      
                       RoundedButton(
                         text: "ถัดไป",
+                        // color: kPrimaryLightColor,
+                        // textColor: Colors.black,
                         press: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder: (context) {
-                                return ScreeningScreenOne();
+                                return ScreeningresultsScreen();
                               },
                             ),
                           );

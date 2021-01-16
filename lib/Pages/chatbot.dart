@@ -1,27 +1,26 @@
+
 import 'package:bubble/bubble.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dialogflow/dialogflow_v2.dart';
 import 'package:intl/intl.dart';
 
-
 class ChatbotPage extends StatefulWidget {
-ChatbotPage({Key key, this.title}) : super(key: key);
+  ChatbotPage({Key key, this.title}) : super(key: key);
 
+  final String title;
 
-
-final String title;
-
-@override
-_ChatbotPageState createState() => _ChatbotPageState();
+  @override
+  _ChatbotPageState createState() => _ChatbotPageState();
 }
 
 class _ChatbotPageState extends State<ChatbotPage> {
   void response(query) async {
-    AuthGoogle authGoogle = await AuthGoogle(
-        fileJson: "assets/ifightcivid19-nlia-d38b4d515079.json") //file ของเรา .json
-        .build();
-    Dialogflow dialogflow =
-    Dialogflow(authGoogle: authGoogle, language: Language.thai);//language: Language.thai);
+    AuthGoogle authGoogle =
+        await AuthGoogle(fileJson: "assets/flutterbot-wsg9-bf4e207faea5.json")
+            .build();
+    Dialogflow dialogflow = Dialogflow(
+        authGoogle: authGoogle,
+        language: Language.thai); //language: Language.thai);
     AIResponse aiResponse = await dialogflow.detectIntent(query);
     setState(() {
       messsages.insert(0, {
@@ -30,9 +29,8 @@ class _ChatbotPageState extends State<ChatbotPage> {
       });
     });
 
-
     print(aiResponse.getListMessage()[0]["text"]["text"][0].toString());
-   }
+  }
 
   final messageInsert = TextEditingController();
   List<Map> messsages = List();
@@ -40,8 +38,8 @@ class _ChatbotPageState extends State<ChatbotPage> {
   @override
   Widget build(BuildContext context) {
     // debugShowCheckedModeBanner: false,
-    
-    return  Scaffold(
+
+    return Scaffold(
       appBar: AppBar(
         leading: Image.asset('assets/icons/doctor1.png'),
         centerTitle: true,
@@ -49,24 +47,25 @@ class _ChatbotPageState extends State<ChatbotPage> {
           "ไอรู้สู้โควิด19ถาม-ตอบ",
         ),
         actions: [
-         //action button
-         IconButton(
-         icon: Image.asset('assets/icons/heart.png'),
-      onPressed: () { },
+          //action button
+          IconButton(
+            icon: Image.asset('assets/icons/heart.png'),
+            onPressed: () {},
+          ),
+        ],
       ),
-     ],
-      ),
-      
       body: Container(
         child: Column(
           children: <Widget>[
             Container(
               padding: EdgeInsets.only(top: 15, bottom: 10),
-              child: Text("Today, ${DateFormat("Hm").format(DateTime.now())}", style: TextStyle(
-                fontSize: 20
-              ),),
+              child: Text(
+                "Today, ${DateFormat("Hm").format(DateTime.now())}",
+                style: TextStyle(fontSize: 20),
+              ),
             ),
             Flexible(
+                
                 child: ListView.builder(
                     reverse: true,
                     itemCount: messsages.length,
@@ -76,77 +75,58 @@ class _ChatbotPageState extends State<ChatbotPage> {
             SizedBox(
               height: 20,
             ),
-
             Divider(
               height: 5.0,
               color: Colors.black,
             ),
             Container(
-
-
               child: ListTile(
-                  title: Container(
-                    height: 35,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(
-                          15)),
-                      color: Color.fromRGBO(220, 220, 220, 1),
-                    ),
-                    padding: EdgeInsets.only(left: 15),
-                    child: TextFormField(
-                      controller: messageInsert,
-                      decoration: InputDecoration(
-                        // hintText: "Enter a Message...",
-                        hintStyle: TextStyle(
-                            color: Colors.black26
-                        ),
-                        border: InputBorder.none,
-                        focusedBorder: InputBorder.none,
-                        enabledBorder: InputBorder.none,
-                        errorBorder: InputBorder.none,
-                        disabledBorder: InputBorder.none,
-                      ),
-
-                      style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.black
-                      ),
-                      onChanged: (value) {
-
-                      },
-                    ),
+                title: Container(
+                  height: 35,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(15)),
+                    color: Color.fromRGBO(220, 220, 220, 1),
                   ),
-
-                  trailing: IconButton(
-
-                      icon: Icon(
-
-                        Icons.send,
-                        size: 30.0,
-                        color: Colors.black,
-                      ),
-                      onPressed: () {
-
-                        if (messageInsert.text.isEmpty) {
-                          print("empty message");
-                        } else {
-                          setState(() {
-                            messsages.insert(0,
-                                {"data": 1, "message": messageInsert.text});
-                          });
-                          response(messageInsert.text);
-                          messageInsert.clear();
-                        }
-                        FocusScopeNode currentFocus = FocusScope.of(context);
-                        if (!currentFocus.hasPrimaryFocus) {
-                          currentFocus.unfocus();
-                        }
-                      }),
-
+                  padding: EdgeInsets.only(left: 15),
+                  child: TextFormField(
+                    controller: messageInsert,
+                    decoration: InputDecoration(
+                      // hintText: "Enter a Message...",
+                      hintStyle: TextStyle(color: Colors.black26),
+                      border: InputBorder.none,
+                      focusedBorder: InputBorder.none,
+                      enabledBorder: InputBorder.none,
+                      errorBorder: InputBorder.none,
+                      disabledBorder: InputBorder.none,
+                    ),
+                    style: TextStyle(fontSize: 16, color: Colors.black),
+                    onChanged: (value) {},
+                  ),
+                ),
+                trailing: IconButton(
+                    icon: Icon(
+                      Icons.send,
+                      size: 30.0,
+                      color: Colors.black,
+                    ),
+                    onPressed: () {
+                      if (messageInsert.text.isEmpty) {
+                        print("empty message");
+                      } else {
+                        setState(() {
+                          messsages.insert(
+                              0, {"data": 1, "message": messageInsert.text});
+                        });
+                        response(messageInsert.text);
+                        messageInsert.clear();
+                      }
+                      FocusScopeNode currentFocus = FocusScope.of(context);
+                      if (!currentFocus.hasPrimaryFocus) {
+                        currentFocus.unfocus();
+                      }
+                    }),
               ),
-
             ),
-
             SizedBox(
               height: 15.0,
             )
@@ -161,60 +141,60 @@ class _ChatbotPageState extends State<ChatbotPage> {
   Widget chat(String message, int data) {
     return Container(
       padding: EdgeInsets.only(left: 20, right: 20),
-
       child: Row(
-          mainAxisAlignment: data == 1 ? MainAxisAlignment.end : MainAxisAlignment.start,
-          children: [
-
-            data == 0 ? Container(
-              height: 60,
-              width: 60,
-              child: CircleAvatar(
-                backgroundImage: AssetImage("assets/icons/doctor1.png"),
-              ),
-            ) : Container(),
-
-        Padding(
-        padding: EdgeInsets.all(10.0),
-        child: Bubble(
-            radius: Radius.circular(15.0),
-            color: data == 0 ? Color.fromRGBO(23, 157, 139, 1) : Colors.orangeAccent,
-            elevation: 0.0,
-
-            child: Padding(
-              padding: EdgeInsets.all(2.0),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-
-                  SizedBox(
-                    width: 10.0,
+        mainAxisAlignment:
+            data == 1 ? MainAxisAlignment.end : MainAxisAlignment.start,
+        children: [
+          data == 0
+              ? Container(
+                  height: 40,
+                  width: 40,
+                  child: CircleAvatar(
+                    backgroundImage: AssetImage("assets/icons/doctor1.png"),
                   ),
-                  Flexible(
-                      child: Container(
-                        constraints: BoxConstraints( maxWidth: 200),
+                )
+              : Container(),
+          Padding(
+            padding: EdgeInsets.all(10.0),
+            child: Bubble(
+                radius: Radius.circular(15.0),
+                color: data == 0
+                    ? Color.fromRGBO(23, 157, 139, 1)
+                    : Colors.orangeAccent,
+                elevation: 0.0,
+                child: Padding(
+                  padding: EdgeInsets.all(2.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      SizedBox(
+                        width: 10.0,
+                      ),
+                      Flexible(
+                          child: Container(
+                        constraints: BoxConstraints(maxWidth: 200),
                         child: Text(
                           message,
                           style: TextStyle(
                               color: Colors.white, fontWeight: FontWeight.bold),
                         ),
                       ))
-                ],
-              ),
-            )),
+                    ],
+                  ),
+                )),
+          ),
+          data == 1
+              ? Container(
+                  height: 40,
+                  width: 40,
+                  child: CircleAvatar(
+                    backgroundImage: AssetImage("assets/icons/Group.png"),
+                  ),
+                )
+              : Container(),
+        ],
       ),
-
-
-            data == 1? Container(
-              height: 60,
-              width: 60,
-              child: CircleAvatar(
-                backgroundImage: AssetImage("assets/icons/Group.png"),
-              ),
-            ) : Container(),
-
-          ],
-        ),
     );
   }
 }
+

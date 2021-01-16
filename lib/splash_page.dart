@@ -13,18 +13,20 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return SplashScreen(
-        seconds: 1,
+        seconds: 3,
         navigateAfterSeconds: WelcomeScreen(),
         title: Text(
           'ไอรู้ สู้โควิด',
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30.0 ,
-            color: Colors.pink[300] ,fontStyle:FontStyle.italic),
+            color: Colors.black),
         ),
-        image: Image.asset('asset/images/tik1.png'),
-        backgroundColor: Colors.pink[100],
-        styleTextUnderTheLoader: TextStyle(color: Colors.deepPurple),
-        photoSize: 150.0,
-        loaderColor: Colors.pink[100]
+        
+        
+        image: Image.asset('assets/icons/heart.png'),
+        backgroundColor: Colors.deepPurple[100],
+        // styleTextUnderTheLoader: TextStyle(color: Colors.deepPurple),
+        photoSize: 90.0,
+        // loaderColor: Colors.pink[100]
         );
   }
 }
