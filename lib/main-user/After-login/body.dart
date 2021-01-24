@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:ifightcovid19/Pages/Description.dart';
 import 'package:ifightcovid19/Pages/chatbot.dart';
 import 'package:ifightcovid19/Pages/healthform.dart';
 import 'package:ifightcovid19/Screens/Welcome/components/background.dart';
@@ -25,6 +26,40 @@ class Body extends StatelessWidget {
               height: size.height * 0.20,
             ),
             SizedBox(height: 10.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                    width: 150,
+                    height: 100,
+                    alignment: Alignment.bottomLeft,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage('assets/icons/COVID .jpeg'),
+                          fit: BoxFit.fill),
+                    ),
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => DescriptionPages()));
+                      },
+                      child: Column(
+                        children: <Widget>[
+                          Text(
+                            "คัดกรอง COVID-19",
+                            style: TextStyle(
+                                fontFamily: 'AirbnbCerealBold',
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                          ),
+                        ],
+                      ),
+                    )),
+              ],
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[

@@ -4,7 +4,7 @@ import 'package:ifightcovid19/constants.dart';
 import 'package:ifightcovid19/model/RegisterParent.dart';
 import 'package:ifightcovid19/service/ItemsService.dart';
 import 'package:ifightcovid19/service/RegisterService.dart';
-
+import 'package:ifightcovid19/main-user/After-login/after-login.dart';
 import '../../Welcome/welcome_screen.dart';
 
 class Body extends StatefulWidget {
@@ -26,7 +26,7 @@ class BodyPageState extends State<Body> with TickerProviderStateMixin {
   // ignore: unused_field
   final TextEditingController _controllerText = new TextEditingController();
   final TextEditingController _firstNameAndLastName =
-      new TextEditingController();
+  new TextEditingController();
   final TextEditingController _personId = new TextEditingController();
   final TextEditingController _dateOfBirth = new TextEditingController();
   final TextEditingController _address = new TextEditingController();
@@ -60,7 +60,8 @@ class BodyPageState extends State<Body> with TickerProviderStateMixin {
     _controller = new AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 100),
-    )..addStatusListener((AnimationStatus status) {
+    )
+      ..addStatusListener((AnimationStatus status) {
         if (status == AnimationStatus.completed) _controller.reverse();
       });
     ItemsService.getItems();
@@ -130,12 +131,12 @@ class BodyPageState extends State<Body> with TickerProviderStateMixin {
                               hintText: 'ชื่อ-นามสกุล*',
                               border: OutlineInputBorder(
                                 borderSide:
-                                    BorderSide(color: Colors.grey, width: 32.0),
+                                BorderSide(color: Colors.grey, width: 32.0),
                                 //borderRadius: BorderRadius.circular(5.0)
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderSide:
-                                    BorderSide(color: Colors.grey, width: 1.0),
+                                BorderSide(color: Colors.grey, width: 1.0),
                                 //borderRadius: BorderRadius.circular(2.0)
                               )),
                           controller: _firstNameAndLastName,
@@ -147,11 +148,11 @@ class BodyPageState extends State<Body> with TickerProviderStateMixin {
                             hintText: 'หมายเลขบัตรประชาชน*',
                             border: OutlineInputBorder(
                                 borderSide:
-                                    BorderSide(color: Colors.grey, width: 32.0),
+                                BorderSide(color: Colors.grey, width: 32.0),
                                 borderRadius: BorderRadius.circular(5.0)),
                             focusedBorder: OutlineInputBorder(
                                 borderSide:
-                                    BorderSide(color: Colors.grey, width: 1.0),
+                                BorderSide(color: Colors.grey, width: 1.0),
                                 borderRadius: BorderRadius.circular(.0))),
                         controller: _personId,
                         onSaved: (val) => formData.personId = val,
@@ -163,11 +164,11 @@ class BodyPageState extends State<Body> with TickerProviderStateMixin {
                             hintText: 'วัน/เดือน/ปี*',
                             border: OutlineInputBorder(
                                 borderSide:
-                                    BorderSide(color: Colors.grey, width: 32.0),
+                                BorderSide(color: Colors.grey, width: 32.0),
                                 borderRadius: BorderRadius.circular(5.0)),
                             focusedBorder: OutlineInputBorder(
                                 borderSide:
-                                    BorderSide(color: Colors.grey, width: 1.0),
+                                BorderSide(color: Colors.grey, width: 1.0),
                                 borderRadius: BorderRadius.circular(5.0))),
                         controller: _dateOfBirth,
                         onSaved: (val) => formData.dateOfBirth = val,
@@ -179,11 +180,11 @@ class BodyPageState extends State<Body> with TickerProviderStateMixin {
                             hintText: 'ที่อยู่*',
                             border: OutlineInputBorder(
                                 borderSide:
-                                    BorderSide(color: Colors.grey, width: 32.0),
+                                BorderSide(color: Colors.grey, width: 32.0),
                                 borderRadius: BorderRadius.circular(5.0)),
                             focusedBorder: OutlineInputBorder(
                                 borderSide:
-                                    BorderSide(color: Colors.grey, width: 1.0),
+                                BorderSide(color: Colors.grey, width: 1.0),
                                 borderRadius: BorderRadius.circular(5.0))),
                         controller: _address,
                         onSaved: (val) => formData.address = val,
@@ -194,23 +195,23 @@ class BodyPageState extends State<Body> with TickerProviderStateMixin {
                       ),
                       new Container(
                           child: DropdownButton<String>(
-                        value: _district,
-                        iconSize: 24,
-                        elevation: 16,
-                        style: TextStyle(color: Colors.deepPurple),
-                        underline: Container(
-                          height: 2,
-                          color: Colors.deepPurpleAccent,
-                        ),
-                        onChanged: _handleDistinctSelect,
-                        items: distinctList
-                            .map<DropdownMenuItem<String>>((String value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(value),
-                          );
-                        }).toList(),
-                      )),
+                            value: _district,
+                            iconSize: 24,
+                            elevation: 16,
+                            style: TextStyle(color: Colors.deepPurple),
+                            underline: Container(
+                              height: 2,
+                              color: Colors.deepPurpleAccent,
+                            ),
+                            onChanged: _handleDistinctSelect,
+                            items: distinctList
+                                .map<DropdownMenuItem<String>>((String value) {
+                              return DropdownMenuItem<String>(
+                                value: value,
+                                child: Text(value),
+                              );
+                            }).toList(),
+                          )),
                       SizedBox(height: 10.0),
                       TextFormField(
                           keyboardType: TextInputType.text,
@@ -234,13 +235,15 @@ class BodyPageState extends State<Body> with TickerProviderStateMixin {
                           color: kPrimaryColor,
                           onPressed: () {
                             {
-                              _submitForm().then((value) => {
-                                    if (value ==
-                                        null) // == 2ตัวคือ ให้มันเข้า เงื่อนไขแรก   !=  ให้มันเข้า เงื่อนไขสอง
-                                      {
-                                        showDialog(
-                                          context: context,
-                                          builder: (ctx) => AlertDialog(
+                              _submitForm().then((value) =>
+                              {
+                                if (value ==
+                                    null) // == 2ตัวคือ ให้มันเข้า เงื่อนไขแรก   !=  ให้มันเข้า เงื่อนไขสอง
+                                  {
+                                    showDialog(
+                                      context: context,
+                                      builder: (ctx) =>
+                                          AlertDialog(
                                             title: Text(
                                                 "คุณได้ทำการลงทะเบียนสำเร็จแล้ว"),
                                             content: Text(
@@ -254,7 +257,7 @@ class BodyPageState extends State<Body> with TickerProviderStateMixin {
                                                     MaterialPageRoute(
                                                       builder: (context) {
                                                         //return ScreeningScreen();
-                                                        return DescriptionPages();
+                                                        return AfterLogin();
                                                       },
                                                     ),
                                                   );
@@ -263,15 +266,16 @@ class BodyPageState extends State<Body> with TickerProviderStateMixin {
                                               ),
                                             ],
                                           ),
-                                        )
-                                      }
-                                    else
-                                      {
-                                        showDialog(
-                                          context: context,
-                                          builder: (ctx) => AlertDialog(
+                                    )
+                                  }
+                                else
+                                  {
+                                    showDialog(
+                                      context: context,
+                                      builder: (ctx) =>
+                                          AlertDialog(
                                             title:
-                                                Text("คุณลงทะเบียนไม่สำเร็จ "),
+                                            Text("คุณลงทะเบียนไม่สำเร็จ "),
                                             content: Text(
                                                 "กรุณากรอกข้อมุลให้ครบถ้วน"),
                                             actions: <Widget>[
@@ -293,9 +297,9 @@ class BodyPageState extends State<Body> with TickerProviderStateMixin {
                                               ),
                                             ],
                                           ),
-                                        )
-                                      }
-                                  });
+                                    )
+                                  }
+                              });
                             }
                           },
                           child: Text(
