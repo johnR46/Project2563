@@ -15,7 +15,7 @@ dependencies:
   font_awesome_flutter: ^8.10.0
   intl: ^0.16.1
   flutter_form_bloc: ^0.19.0
-
+  shared_preferences: any
   json_form_generator: "^0.0.1"
 
   mongo_dart: ^0.4.4
@@ -39,6 +39,7 @@ dependencies:
     sdk: flutter
   # fluttertoast: ^2.0.7
   google_maps_flutter: ^0.5.28+1 
+  location : ^2.3.5
   sqflite:
   path:
 

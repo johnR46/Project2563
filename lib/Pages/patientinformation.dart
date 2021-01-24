@@ -35,6 +35,9 @@ class PatientinformationPage extends StatelessWidget {
             
         children: <Widget>[
             SizedBox(width: 50.0),
+             new Padding(
+                        padding: new EdgeInsets.all(9.0),
+                      ),
             Text('Dash board',style: TextStyle(fontSize: 14.0,fontWeight: FontWeight.bold),),
             Text('ข้อมูลผู้ป่วยที่มารับการตรวจคัดกรองโรค',style: TextStyle(fontSize: 14.0,fontWeight: FontWeight.bold),),
             

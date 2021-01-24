@@ -21,6 +21,7 @@ class Form14dayPageState extends State<Form14dayPage> with TickerProviderStateMi
   bool checkbox5 = true;
   bool checkbox6 = false;
   bool checkbox7 = true;
+  bool checkbox8 = true;
   DateTime date = DateTime.now();
   String dropdownValue = '6';
 
@@ -209,85 +210,25 @@ class Form14dayPageState extends State<Form14dayPage> with TickerProviderStateMi
               SizedBox(width: 10.0),
               Text('ไม่รู้รส')
             ]),
-          //    SizedBox(height: 10.0),
-          //   Text('ระบุวันที่เริ่มมีอาการป่วย:',style: TextStyle(fontSize: 14.0,fontWeight: FontWeight.bold),),
-          //   SizedBox(height: 10.0),
-          //   InkWell(
-          //     onTap: () async {
-          //       final DateTime picked = await showDatePicker(
-          //         context: context,
-          //         initialDate: date,
-          //         firstDate: DateTime(1994),
-          //         lastDate: DateTime(2101),
-          //         builder: (BuildContext context, Widget child) {
-          //           return Theme(
-          //             data: ThemeData.dark(),
-          //             child: child,
-          //           );
-          //         },
-          //       );
-          //       if (picked != null && picked != date)
-          //         setState(() {
-          //           date = picked;
-          //         });
-          //     },
-          //     child: Text('$date กดเลือกวันที่'),
-          //   ),
-//   Text('อายุของท่าน (ปี):',style: TextStyle(fontSize: 14.0,fontWeight: FontWeight.bold),),
-//            Container(
-//   padding: EdgeInsets.only(left: 5.0, right: 5.0),
-//   decoration: BoxDecoration(
-// 	border: Border.all(color: Colors.grey),
-// 	borderRadius: BorderRadius.circular(3.0)
-//   ),
-//   child: DropdownButton<String>(
-// 	value: dropdownValue,
-// 	isExpanded: true,
-// 	icon: Icon(Icons.keyboard_arrow_down, size: 22),
-// 	underline: SizedBox(),
-// 	items: <String>['6','7','8','9','10','11', '12' ,'13' ,'14' ,'15' , '16' , '17' ,'18','19','20-30','30-40','40-50','50-60'].map((String value) {
-// 	  return new DropdownMenuItem<String>(
-// 		value: value,
-// 		child: new Text(value),
-// 	  );
-// 	}).toList(),
-// 	onChanged: (value) {
-// 	  //Do something with this value
-// 	  setState(() {
-// 		dropdownValue = value;
-// 	  });
-
-// 	},
-  
-//   ),
-    
-  
-// ),
-//     SizedBox(height: 10.0),
-//              Text('ระบุวันที่เริ่มมีอาการป่วย:',style: TextStyle(fontSize: 14.0,fontWeight: FontWeight.bold),),
-//              SizedBox(height: 10.0),
-//              InkWell(
-//                onTap: () async {
-//                  final DateTime picked = await showDatePicker(
-//                    context: context,
-//                    initialDate: date,
-//                    firstDate: DateTime(1994),
-//                    lastDate: DateTime(2101),
-//                    builder: (BuildContext context, Widget child) {
-//                      return Theme(
-//                        data: ThemeData.dark(),
-//                        child: child,
-//                      );
-//                    },
-//                  );
-//                  if (picked != null && picked != date)
-//                    setState(() {
-//                      date = picked;
-//                    });
-//                },
-//                child: Text('$date กดเลือกวันที่'),
-//              ),
-           SizedBox(height: 10.0),
+          //  SizedBox(height: 10.0),
+             SizedBox(height: 10.0),
+            Row(children: [
+              SizedBox(
+                width: 10,
+                child: Checkbox(
+                  value: checkbox8,
+                  activeColor: Colors.orange,
+                  onChanged: (value) {
+                    //value may be true or false
+                    setState(() {
+                      checkbox8 = !checkbox8;
+                    });
+                  },
+                ),
+              ),
+              SizedBox(width: 10.0),
+              Text('ไม่มีอาการข้างต้น')
+            ]),
             SizedBox(height: 10.0),
             Row(mainAxisAlignment: MainAxisAlignment.center, children: [
               

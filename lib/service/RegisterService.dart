@@ -1,18 +1,18 @@
-import 'package:ifightcovid19/model/RegisterParent.dart';
 import 'dart:async';
 import 'dart:convert';
+
 import 'package:http/http.dart' as http;
+import 'package:ifightcovid19/model/RegisterParent.dart';
+import 'package:ifightcovid19/service/config_server.dart';
 
 class RegisterService {
-  static const _serviceUrl = 'http://477feaafde6b.ngrok.io';
-  // /register/add
-  static final _headers = {'Content-Type': 'application/json'};
-
   Future<RegisterParent> createRegisterParent(RegisterParent register) async {
     try {
       String json = _toJson(register);
-      final response = await http.post(_serviceUrl + "/register/add",
-          headers: _headers, body: json);
+      final response = await http.post(
+          ConfigServer().ServiceUrl + "/register/add",
+          headers: ConfigServer().Headers,
+          body: json);
       var c = _fromJson(response.body);
       return c;
     } catch (e) {

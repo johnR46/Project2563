@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:ifightcovid19/Screens/Welcome/welcome_screen.dart';
+// import 'package:ifightcovid19/Screens/Welcome/main-user.dart';
 
 import 'package:ifightcovid19/constants.dart';
 import 'package:ifightcovid19/splash_page.dart';

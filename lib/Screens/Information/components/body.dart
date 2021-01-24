@@ -51,18 +51,22 @@ class _BodyPageState extends State<BodyPage> {
         items:[
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
+             // ignore: deprecated_member_use
             title: Text('ข้อมูล'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.graphic_eq),
+             // ignore: deprecated_member_use
             title: Text('กราฟ'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.map),
+             // ignore: deprecated_member_use
             title: Text('สถานะผู้ป่วย'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.format_align_justify),
+            // ignore: deprecated_member_use
             title: Text('เพิ่มแบบฟอร์ม'),
           )
 

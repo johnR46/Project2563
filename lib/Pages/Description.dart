@@ -1,8 +1,11 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+// import 'package:ifightcovid19/Pages/assessment.dart';
+import 'package:ifightcovid19/Screens/Screeningresults/screeningresults_screen.dart';
+// import 'package:ifightcovid19/Screens/Screeningresults/screeningresults_screen.dart';
 import 'package:velocity_x/velocity_x.dart';
-import 'package:ifightcovid19/Screens/Screening/screening_screen.dart';
+// import 'package:ifightcovid19/Screens/Screening/screening_screen.dart';
  
 // ignore: must_be_immutable
 class DescriptionPages extends StatelessWidget {
@@ -37,7 +40,7 @@ class DescriptionPages extends StatelessWidget {
                 
                     
                   new Card(
-                    color: Colors.green[300],
+                    color: Colors.green[200],
                     margin: new EdgeInsets.only(
                         left: 20.0, right: 20.0, top: 8.0, bottom: 5.0),
                     shape: RoundedRectangleBorder(
@@ -83,7 +86,7 @@ class DescriptionPages extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return ScreeningScreen();
+                            return ScreeningresultsScreen();
                           },
                         ),
                       ); //แอดไปยังหน้า ประเมินผู้ป่วย
